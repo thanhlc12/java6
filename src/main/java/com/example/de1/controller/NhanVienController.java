@@ -46,5 +46,9 @@ public class NhanVienController {
         return ResponseEntity.ok(nhanVienService.findByMa(ma));
     }
 
-
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleteNhanVien(@PathVariable Integer id) {
+        nhanVienService.deleteNhanVien(id);
+        return ResponseEntity.ok().build();
+    }
 }

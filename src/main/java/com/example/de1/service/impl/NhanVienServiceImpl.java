@@ -27,14 +27,14 @@ public class NhanVienServiceImpl implements NhanVienService {
     @Override
     public List<NhanVienDTO> findAll() {
         return nhanVienRepo.findAll().stream().
-                map(nv -> new NhanVienDTO(
-                        nv.getId(),
-                        nv.getMaNhanVien(),
-                        nv.getHoTen(),
-                        nv.getGioiTinh(),
-                        nv.getNgaySinh(),
-                        nv.getChucVu().getMaChucVu(),
-                        nv.getChucVu().getTenChucVu()
+                map(nhanVien -> new NhanVienDTO(
+                        nhanVien.getId(),
+                        nhanVien.getMaNhanVien(),
+                        nhanVien.getHoTen(),
+                        nhanVien.getGioiTinh(),
+                        nhanVien.getNgaySinh(),
+                        nhanVien.getChucVu().getMaChucVu(),
+                        nhanVien.getChucVu().getTenChucVu()
                 )).collect(Collectors.toList());
     }
 
@@ -83,6 +83,11 @@ public class NhanVienServiceImpl implements NhanVienService {
             nhanVien.setChucVu(chucVu);
         }
         return nhanVienRepo.save(nhanVien);
+    }
+
+    @Override
+    public void deleteNhanVien(Integer id) {
+        nhanVienRepo.deleteById(id);
     }
 
 

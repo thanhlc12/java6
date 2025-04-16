@@ -18,4 +18,6 @@ public interface NhanVienService {
     NhanVien findByMa(String ma);
 
     NhanVien updateNhanVien(NhanVienDTO nhanVienDTO, Integer id);
+
+    void deleteNhanVien(Integer id);
 }
